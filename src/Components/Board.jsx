@@ -13,11 +13,11 @@ const StyledDiv = styled.div`
   gap: 4px;
 `;
 
-const Board = ({ arr, setArr }) => {
+const Board = ({ arr, setArr, order }) => {
   return (
     <StyledDiv>
       {arr.map((val, index) => (
-        <Box key={index} index={index} value={val} />
+        <Box key={index} index={index} value={val} order={order} />
       ))}
     </StyledDiv>
   );

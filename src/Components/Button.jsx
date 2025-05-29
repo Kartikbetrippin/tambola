@@ -3,6 +3,7 @@ import styled from "styled-components";
 import TimeVal from "./TimeVal";
 import ResetButton from "./ResetButton";
 import CircularLoader from "./CircularLoader";
+import NextCall from "./NextCall";
 
 const StyledDiv = styled.div`
   flex: 1;
@@ -37,7 +38,7 @@ const StyledBtn = styled.button`
   border-radius: 5px;
 `;
 
-const Button = ({ val, setVal, setTimer, timer, setArr, order }) => {
+const Button = ({ val, setVal, setTimer, timer, setArr, order, arr }) => {
   const timeSpent = useRef(0);
   const [progress, setProgress] = useState(0);
 
@@ -66,10 +67,20 @@ const Button = ({ val, setVal, setTimer, timer, setArr, order }) => {
     <StyledDiv>
       <CircularLoader value={order} />
       <MedDiv>
-        <StyledBtn $percent={progress} onClick={() => setVal((old) => !old)}>
-          {val ? "Stop" : "Start"} {timer}s
-        </StyledBtn>
-        <TimeVal time={timer} setTime={setTimer} />
+        <NextCall arr={arr} setArr={setArr} order={order} />
+        <div
+          style={{
+            border: "1px solid black",
+            margin: "10px 10px",
+            padding: "4px 4px",
+            borderRadius: "5px",
+          }}
+        >
+          <StyledBtn $percent={progress} onClick={() => setVal((old) => !old)}>
+            {val ? "Stop" : "Start"} {timer}s
+          </StyledBtn>
+          <TimeVal time={timer} setTime={setTimer} />
+        </div>
         <ResetButton setArr={setArr} order={order} />
       </MedDiv>
     </StyledDiv>

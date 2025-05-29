@@ -29,8 +29,9 @@ const App = () => {
           setTimer={setTimer}
           setArr={setArr}
           order={returnOrder}
+          arr={arr}
         />
-        <Board arr={arr} />
+        <Board arr={arr} setArr={setArr} order={returnOrder} />
       </StyledDiv>
 
       <Order order={returnOrder} />

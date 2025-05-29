@@ -77,7 +77,7 @@ const Button = ({ val, setVal, setTimer, timer, setArr, order, arr }) => {
           }}
         >
           <StyledBtn $percent={progress} onClick={() => setVal((old) => !old)}>
-            {val ? "Stop" : "Start"} {timer}s
+            {val ? "Stop" : "Start"} : {timer}s
           </StyledBtn>
           <TimeVal time={timer} setTime={setTimer} />
         </div>

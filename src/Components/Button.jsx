@@ -10,6 +10,16 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 16px 10px;
+  align-items: center;
+  @media (max-width: 500px) {
+    flex-direction: row;
+  }
+`;
+const MedDiv = styled.div`
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 `;
 
 const StyledBtn = styled.button`
@@ -55,13 +65,13 @@ const Button = ({ val, setVal, setTimer, timer, setArr, order }) => {
   return (
     <StyledDiv>
       <CircularLoader value={order} />
-      <div>
+      <MedDiv>
         <StyledBtn $percent={progress} onClick={() => setVal((old) => !old)}>
           {val ? "Stop" : "Start"} {timer}s
         </StyledBtn>
         <TimeVal time={timer} setTime={setTimer} />
         <ResetButton setArr={setArr} order={order} />
-      </div>
+      </MedDiv>
     </StyledDiv>
   );
 };

@@ -7,7 +7,7 @@ function CircularLoader({ value }) {
   const percentage = (value.current.length / max) * 100;
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ flex: 1 }}>
       <CircularProgressbar
         value={percentage}
         text={`${value.current.length}/${max}`}

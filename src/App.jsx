@@ -7,6 +7,10 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   display: flex;
+  @media (max-width: 500px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const App = () => {
